@@ -15,8 +15,8 @@ describe('test/sls.test.js', () => {
 
   it('should GET /', () => {
     return app.httpRequest()
-      .get('/')
-      .expect('hi, sls')
+      .post('/logs')
+      .send({ key: 'a', value: 'b' })
       .expect(200);
   });
 });

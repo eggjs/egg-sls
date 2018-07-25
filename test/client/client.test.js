@@ -6,19 +6,17 @@ const SLSClient = require('../../lib/client');
 describe('test/client/index.test.js', () => {
 
   it('should post logs', async () => {
-    console.log(SLSClient);
     const client = new SLSClient({
-      endpoint: '',
-      accessKeyId: '',
-      accessKeySecret: '',
+      endpoint: process.env.SLS_ENDPOINT,
+      accessKeyId: process.env.SLS_ACCESS_KEY_ID,
+      accessKeySecret: process.env.SLS_ACCESS_KEY_SECRET,
       httpclient: urllib,
     });
 
     const logContents = [{
       key: 'name',
       value: 'hello',
-    },
-    ];
+    }];
     const logGroup = {
       topic: 'common-error',
       source: '127.0.0.1',
@@ -28,7 +26,7 @@ describe('test/client/index.test.js', () => {
       }],
     };
 
-    await client.postLogstoreLogs('ant-techlessapp', 'chair-log-internal', logGroup);
+    await client.postLogstoreLogs('egg-sls-unittest', 'egg-sls-test', logGroup);
   });
 
 });
