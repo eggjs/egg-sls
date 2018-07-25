@@ -88,7 +88,7 @@ see [config/config.default.js](config/config.default.js) for more detail.
 - [ ] ListShards
 - [ ] SplitShard
 - [ ] MergeShards
-- [ ] PostLogStoreLogs
+- [x] PostLogStoreLogs
 - [ ] GetCursor
 - [ ] PullLogs
 

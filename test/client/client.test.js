@@ -13,18 +13,21 @@ describe('test/client/index.test.js', () => {
       httpclient: urllib,
     });
 
-    const logContents = [{
-      key: 'name',
-      value: 'hello',
-    }];
-    const logGroup = {
-      topic: 'common-error',
-      source: '127.0.0.1',
-      logs: [{
-        time: 1,
-        contents: logContents,
-      }],
-    };
+    const logGroup = client.createLogGroup({ topic: 'common-error', source: '127.0.0.1' });
+    logGroup.setLog({
+      time: 1,
+      contents: {
+        method: 'GET',
+        path: '/',
+      },
+    });
+    logGroup.setLog({
+      time: 2,
+      contents: {
+        method: 'POST',
+        path: '/',
+      },
+    });
 
     await client.postLogstoreLogs('egg-sls-unittest', 'egg-sls-test', logGroup);
   });
