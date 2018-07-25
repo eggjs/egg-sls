@@ -10,7 +10,6 @@ describe('test/sls.test.js', () => {
     });
     return app.ready();
   });
-
   after(() => app.close());
   afterEach(mock.restore);
 

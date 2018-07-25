@@ -8,18 +8,26 @@
   "keywords": [
     "egg",
     "eggPlugin",
-    "egg-plugin"
+    "egg-plugin",
+    "aliyun",
+    "sls"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "mz": "^2.7.0",
+    "protobufjs": "^6.8.8",
+    "utility": "^1.14.0"
+  },
   "devDependencies": {
-    "autod": "^3.0.0",
-    "autod-egg": "^1.0.0",
-    "egg": "^2.0.0",
-    "egg-bin": "^4.3.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg": "^2.9.1",
+    "egg-bin": "^4.7.1",
     "egg-ci": "^1.8.0",
-    "egg-mock": "^3.13.0",
-    "eslint": "^4.11.0",
-    "eslint-config-egg": "^5.1.0",
+    "egg-mock": "^3.17.3",
+    "eslint": "^5.2.0",
+    "eslint-config-egg": "^7.0.0",
+    "flatstr": "^1.0.8",
+    "urllib": "^2.29.0",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
@@ -32,15 +40,15 @@
     "lint": "eslint .",
     "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
     "pkgfiles": "egg-bin pkgfiles",
-    "autod": "autod"
+    "autod": "autod",
+    "pb": "pbjs -t static-module -w commonjs -o lib/client/log.js lib/client/log.proto"
   },
   "files": [
-    "app.js",
-    "agent.js",
-    "config"
+    "config",
+    "app.js"
   ],
   "ci": {
-    "version": "8, 9"
+    "version": "8, 10"
   },
   "repository": {
     "type": "git",
@@ -50,6 +58,6 @@
     "url": "https://github.com/eggjs/egg/issues"
   },
   "homepage": "https://github.com/eggjs/egg-sls#readme",
-  "author": "",
+  "author": "popomore",
   "license": "MIT"
 }
