@@ -73,7 +73,7 @@ describe('test/client/index.test.js', () => {
       });
       await client.postLogstoreLogs('egg-sls-unittest', 'egg-sls-test', logGroup1);
 
-      await sleep(3000);
+      await sleep(5000);
       let result = await client.getLogs('egg-sls-unittest', 'egg-sls-test', { topic });
       assert(result.count === 2);
       assert(result.complete === true);

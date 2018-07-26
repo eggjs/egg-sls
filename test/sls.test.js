@@ -24,7 +24,7 @@ describe('test/sls.test.js', () => {
         .expect(200);
       const topic = res.body.topic;
 
-      await sleep(3000);
+      await sleep(5000);
 
       res = await app.httpRequest()
         .get('/logs/' + topic)
@@ -52,7 +52,7 @@ describe('test/sls.test.js', () => {
         .expect(200);
       const topic = res.body.topic;
 
-      await sleep(3000);
+      await sleep(5000);
 
       res = await app.httpRequest()
         .get('/logs/' + topic)
