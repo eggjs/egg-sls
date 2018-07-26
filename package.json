@@ -1,7 +1,7 @@
 {
   "name": "egg-sls",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.0-alpha.1",
+  "description": "alyun sls plugin in Egg.js",
   "eggPlugin": {
     "name": "sls"
   },
