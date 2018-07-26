@@ -16,24 +16,38 @@ describe('test/client/index.test.js', () => {
     });
   });
 
-  it('should postLogstoreLogs', async () => {
-    const logGroup = client.createLogGroup({ topic: 'common-error', source: '127.0.0.1' });
-    logGroup.setLog({
-      time: 1,
-      contents: {
-        method: 'GET',
-        path: '/',
-      },
-    });
-    logGroup.setLog({
-      time: 2,
-      contents: {
-        method: 'POST',
-        path: '/',
-      },
+  describe('postLogstoreLogs', () => {
+    it('should post logs', async () => {
+      const logGroup = client.createLogGroup({ topic: 'common-error', source: '127.0.0.1' });
+      logGroup.setLog({
+        time: 1,
+        contents: {
+          method: 'GET',
+          path: '/',
+        },
+      });
+      logGroup.setLog({
+        time: 2,
+        contents: {
+          method: 'POST',
+          path: '/',
+        },
+      });
+
+      await client.postLogstoreLogs('egg-sls-unittest', 'egg-sls-test', logGroup);
     });
 
-    await client.postLogstoreLogs('egg-sls-unittest', 'egg-sls-test', logGroup);
+    it('should convert log content to string', async () => {
+      const logGroup = client.createLogGroup({ topic: 'common-error', source: '127.0.0.1' });
+      logGroup.setLog({
+        time: 1,
+        contents: {
+          date: new Date(),
+        },
+      });
+
+      await client.postLogstoreLogs('egg-sls-unittest', 'egg-sls-test', logGroup);
+    });
   });
 
   describe('getLogs', () => {
