@@ -2,6 +2,10 @@
 
 exports.keys = '123456';
 
+exports.security = {
+  csrf: false,
+};
+
 exports.sls = {
   client: {
     endpoint: process.env.SLS_ENDPOINT,

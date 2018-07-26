@@ -36,7 +36,7 @@ describe('test/client/index.test.js', () => {
     await client.postLogstoreLogs('egg-sls-unittest', 'egg-sls-test', logGroup);
   });
 
-  describe.only('getLogs', () => {
+  describe('getLogs', () => {
     it('should getLogs', async () => {
       const topic = String(Date.now());
       const logGroup = client.createLogGroup({ topic, source: '127.0.0.1' });
