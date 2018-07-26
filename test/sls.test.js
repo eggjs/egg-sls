@@ -1,6 +1,7 @@
 'use strict';
 
 const mock = require('egg-mock');
+console.log(process.env);
 
 describe('test/sls.test.js', () => {
   let app;
