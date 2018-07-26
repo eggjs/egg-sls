@@ -54,6 +54,44 @@ see [config/config.default.js](config/config.default.js) for more detail.
 
 <!-- example here -->
 
+## API
+
+### Project
+
+- [ ] createProject
+- [ ] deleteProject
+- [ ] getProject
+- [ ] listProject
+- [ ] getProjectLogs
+
+### Config
+
+- [ ] createConfig
+- [ ] deleteConfig
+- [ ] getConfig
+- [ ] listConfig
+- [ ] updateConfig
+- [ ] GetAppliedMachineGroups
+
+### LogStore
+
+- [ ] createLogstore
+- [ ] deleteLogstore
+- [ ] getLogstore
+- [ ] listLogstore
+- [ ] updateLogstore
+- [ ] getLogs
+- [ ] getHistograms
+
+### Shard
+
+- [ ] ListShards
+- [ ] SplitShard
+- [ ] MergeShards
+- [x] PostLogStoreLogs
+- [ ] GetCursor
+- [ ] PullLogs
+
 ## Questions & Suggestions
 
 Please open an issue [here](https://github.com/eggjs/egg/issues).

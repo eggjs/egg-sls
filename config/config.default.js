@@ -1,10 +1,26 @@
 'use strict';
 
-/**
- * egg-sls default config
- * @member Config#sls
- * @property {String} SOME_KEY - some description
- */
 exports.sls = {
+  enable: true,
 
+  // client: {
+  //   endpoint: '',
+  //   accessKeyId: '',
+  //   accessKeySecret: '',
+  // },
+  //
+  // or
+  //
+  // clients: {
+  //   sls1: {
+  //     endpoint: '',
+  //     accessKeyId: '',
+  //     accessKeySecret: '',
+  //   },
+  //   sls2: {
+  //     endpoint: '',
+  //     accessKeyId: '',
+  //     accessKeySecret: '',
+  //   },
+  // },
 };

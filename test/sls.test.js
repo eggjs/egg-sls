@@ -1,23 +1,65 @@
 'use strict';
 
+const assert = require('assert');
 const mock = require('egg-mock');
+const sleep = require('mz-modules/sleep');
+
 
 describe('test/sls.test.js', () => {
-  let app;
-  before(() => {
-    app = mock.app({
-      baseDir: 'apps/sls-test',
+
+  describe('client', () => {
+    let app;
+    before(() => {
+      app = mock.app({
+        baseDir: 'apps/sls-client',
+      });
+      return app.ready();
     });
-    return app.ready();
+    after(() => app.close());
+
+    it('should GET /', async () => {
+      let res = await app.httpRequest()
+        .post('/logs')
+        .send({ method: 'POST', path: '/' })
+        .expect(200);
+      const topic = res.body.topic;
+
+      await sleep(5000);
+
+      res = await app.httpRequest()
+        .get('/logs/' + topic)
+        .expect(200);
+      assert(res.body.length === 1);
+      assert(res.body[0].method === 'POST');
+      assert(res.body[0].path === '/');
+    });
   });
 
-  after(() => app.close());
-  afterEach(mock.restore);
+  describe('clients', () => {
+    let app;
+    before(() => {
+      app = mock.app({
+        baseDir: 'apps/sls-clients',
+      });
+      return app.ready();
+    });
+    after(() => app.close());
 
-  it('should GET /', () => {
-    return app.httpRequest()
-      .get('/')
-      .expect('hi, sls')
-      .expect(200);
+    it('should GET /', async () => {
+      let res = await app.httpRequest()
+        .post('/logs')
+        .send({ method: 'POST', path: '/' })
+        .expect(200);
+      const topic = res.body.topic;
+
+      await sleep(5000);
+
+      res = await app.httpRequest()
+        .get('/logs/' + topic)
+        .expect(200);
+      assert(res.body.length === 1);
+      assert(res.body[0].method === 'POST');
+      assert(res.body[0].path === '/');
+    });
   });
 });
