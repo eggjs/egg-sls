@@ -16,13 +16,17 @@ describe('test/client/index.test.js', () => {
     });
   });
 
-  describe('createLogstore', () => {
-    it('should create and delete logstore', async () => {
+  describe('Logstore', () => {
+    it('should create, list and delete logstore', async () => {
       await client.createLogstore('egg-sls-unittest', {
         logstoreName: 'egg-sls-test1',
         ttl: 1,
         shardCount: 1,
       });
+
+      const res = await client.listLogstore('egg-sls-unittest');
+      assert(res.count > 1);
+      assert(res.logstores.includes('egg-sls-test1'));
 
       await client.deleteLogstore('egg-sls-unittest', 'egg-sls-test1');
     });
@@ -39,10 +43,8 @@ describe('test/client/index.test.js', () => {
         assert(err.message === 'shardCount value is out of range');
       }
     });
-  });
 
-  describe('deleteLogstore', () => {
-    it('should throw when logstore is not exist', async () => {
+    it('should throw when delete a no existing logstore', async () => {
       try {
         await client.deleteLogstore('egg-sls-unittest', 'unknown');
         throw new Error('should not run');
