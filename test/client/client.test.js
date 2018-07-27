@@ -16,6 +16,42 @@ describe('test/client/index.test.js', () => {
     });
   });
 
+  describe('createLogstore', () => {
+    it('should create and delete logstore', async () => {
+      await client.createLogstore('egg-sls-unittest', {
+        logstoreName: 'egg-sls-test1',
+        ttl: 1,
+        shardCount: 1,
+      });
+
+      await client.deleteLogstore('egg-sls-unittest', 'egg-sls-test1');
+    });
+
+    it('should throw when shardCount is 0', async () => {
+      try {
+        await client.createLogstore('egg-sls-unittest', {
+          logstoreName: 'egg-sls-test1',
+          ttl: 1,
+          shardCount: 0,
+        });
+        throw new Error('should not run');
+      } catch (err) {
+        assert(err.message === 'shardCount value is out of range');
+      }
+    });
+  });
+
+  describe('deleteLogstore', () => {
+    it('should throw when logstore is not exist', async () => {
+      try {
+        await client.deleteLogstore('egg-sls-unittest', 'unknown');
+        throw new Error('should not run');
+      } catch (err) {
+        assert(err.message === 'logstore unknown already exists');
+      }
+    });
+  });
+
   describe('postLogstoreLogs', () => {
     it('should post logs', async () => {
       const logGroup = client.createLogGroup({ topic: 'common-error', source: '127.0.0.1' });
