@@ -79,7 +79,7 @@ see [config/config.default.js](config/config.default.js) for more detail.
 - [x] deleteLogstore
 - [x] getLogstore
 - [x] listLogstore
-- [ ] updateLogstore
+- [x] updateLogstore
 - [x] getLogs
 - [ ] getHistograms
 
