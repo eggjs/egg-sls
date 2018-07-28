@@ -75,12 +75,12 @@ see [config/config.default.js](config/config.default.js) for more detail.
 
 ### LogStore
 
-- [ ] createLogstore
-- [ ] deleteLogstore
-- [ ] getLogstore
-- [ ] listLogstore
+- [x] createLogstore
+- [x] deleteLogstore
+- [x] getLogstore
+- [x] listLogstore
 - [ ] updateLogstore
-- [ ] getLogs
+- [x] getLogs
 - [ ] getHistograms
 
 ### Shard
