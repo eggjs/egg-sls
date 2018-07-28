@@ -58,20 +58,11 @@ see [config/config.default.js](config/config.default.js) for more detail.
 
 ### Project
 
-- [ ] createProject
-- [ ] deleteProject
-- [ ] getProject
-- [ ] listProject
+- [x] createProject
+- [x] deleteProject
+- [x] getProject
+- [x] listProject
 - [ ] getProjectLogs
-
-### Config
-
-- [ ] createConfig
-- [ ] deleteConfig
-- [ ] getConfig
-- [ ] listConfig
-- [ ] updateConfig
-- [ ] GetAppliedMachineGroups
 
 ### LogStore
 
@@ -91,6 +82,22 @@ see [config/config.default.js](config/config.default.js) for more detail.
 - [x] PostLogStoreLogs
 - [ ] GetCursor
 - [ ] PullLogs
+
+### Index
+
+- [ ] createIndex
+- [ ] getIndex
+- [ ] updateIndex
+- [ ] deleteIndex
+
+### Config
+
+- [ ] createConfig
+- [ ] deleteConfig
+- [ ] getConfig
+- [ ] listConfig
+- [ ] updateConfig
+- [ ] GetAppliedMachineGroups
 
 ## Questions & Suggestions
 
