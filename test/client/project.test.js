@@ -55,9 +55,9 @@ describe('test/client/project.test.js', () => {
       assert(res.total > res.count);
       console.log(res.projects);
     } finally {
-      await sleep(5000);
+      await sleep(10000);
       await client.deleteProject(projectName1);
-      await sleep(5000);
+      await sleep(10000);
       await client.deleteProject(projectName2);
     }
   });
