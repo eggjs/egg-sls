@@ -36,7 +36,7 @@
   "scripts": {
     "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
     "test-local": "egg-bin test",
-    "cov": "egg-bin cov",
+    "cov": "egg-bin cov -x lib/client/log.js",
     "lint": "eslint .",
     "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
     "pkgfiles": "egg-bin pkgfiles",
