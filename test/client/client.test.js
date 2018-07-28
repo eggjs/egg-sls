@@ -24,11 +24,16 @@ describe('test/client/index.test.js', () => {
         shardCount: 1,
       });
 
-      const res = await client.listLogstore('egg-sls-unittest');
-      assert(res.count > 1);
-      assert(res.logstores.includes('egg-sls-test1'));
+      try {
+        let res = await client.listLogstore('egg-sls-unittest');
+        assert(res.count > 1);
+        assert(res.logstores.includes('egg-sls-test1'));
 
-      await client.deleteLogstore('egg-sls-unittest', 'egg-sls-test1');
+        res = await client.getLogstore('egg-sls-unittest', 'egg-sls-test1');
+        console.log(res);
+      } finally {
+        await client.deleteLogstore('egg-sls-unittest', 'egg-sls-test1');
+      }
     });
 
     it('should throw when shardCount is 0', async () => {
@@ -49,7 +54,7 @@ describe('test/client/index.test.js', () => {
         await client.deleteLogstore('egg-sls-unittest', 'unknown');
         throw new Error('should not run');
       } catch (err) {
-        assert(err.message === 'logstore unknown already exists');
+        assert(err.message === 'logstore unknown does not exist');
       }
     });
   });
