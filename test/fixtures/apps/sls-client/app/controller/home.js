@@ -12,14 +12,14 @@ class HomeController extends Controller {
       time: new Date(),
       contents: body,
     });
-    await sls.postLogstoreLogs('egg-sls-unittest', 'egg-sls-test', logGroup);
+    await sls.postLogstoreLogs('egg-sls-unittest1', 'egg-sls-test', logGroup);
     this.ctx.body = { topic };
   }
 
   async getLogs() {
     const sls = this.ctx.app.sls;
     const topic = this.ctx.params.topic;
-    const res = await sls.getLogs('egg-sls-unittest', 'egg-sls-test', { topic });
+    const res = await sls.getLogs('egg-sls-unittest1', 'egg-sls-test', { topic });
     this.ctx.body = res.logs;
   }
 }
