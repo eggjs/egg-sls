@@ -23,6 +23,7 @@ describe('test/client/project.test.js', () => {
       projectName,
       description: projectName,
     });
+    await sleep(10000);
 
     try {
       const res = await client.getProject(projectName);
