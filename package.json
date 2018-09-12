@@ -1,6 +1,6 @@
 {
   "name": "egg-sls",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "alyun sls plugin in Egg.js",
   "eggPlugin": {
     "name": "sls"
@@ -13,21 +13,24 @@
     "sls"
   ],
   "dependencies": {
+    "is-type-of": "^1.2.0",
     "mz": "^2.7.0",
     "protobufjs": "^6.8.8",
-    "utility": "^1.14.0"
+    "utility": "^1.15.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
-    "egg": "^2.9.1",
-    "egg-bin": "^4.7.1",
+    "egg": "^2.11.0",
+    "egg-bin": "^4.8.5",
     "egg-ci": "^1.8.0",
-    "egg-mock": "^3.17.3",
-    "eslint": "^5.2.0",
-    "eslint-config-egg": "^7.0.0",
+    "egg-mock": "^3.20.0",
+    "eslint": "^5.5.0",
+    "eslint-config-egg": "^7.1.0",
     "flatstr": "^1.0.8",
-    "urllib": "^2.29.0",
+    "mz-modules": "^2.1.0",
+    "urllib": "^2.29.1",
+    "uuid": "^3.3.2",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
